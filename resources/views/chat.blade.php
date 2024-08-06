@@ -82,17 +82,14 @@
             }
 
             function subscribeToChannel(conversationId) {
-    //             window.Echo.private(`chat.${conversationId}`)
-    // .listen('MessageSent', (e) => {
-    //     const messageElement = document.createElement('div');
-    //     messageElement.textContent = `${e.message.user.name}: ${e.message.message}`;
-    //     document.getElementById('messages').appendChild(messageElement);
-    // });
+ 
 
                 window.Echo.private(`chat.${conversationId}`)
                     .listen('MessageSent', (e) => {
+                        console.log('e', e.message);
+                        
                         const messageElement = document.createElement('div');
-                        messageElement.textContent = `${e.message.user.name}: ${e.message.message}`;
+                        messageElement.textContent = `${e.message.message}`;
                         document.getElementById('messages').appendChild(messageElement);
                     });
             }
